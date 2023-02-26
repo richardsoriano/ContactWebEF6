@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-ContactWebCoreEF6-b7710913-5af1-4ad7-b2c6-987087a4cef1</UserSecretsId>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
+
 
 
 	<ItemGroup>
@@ -14,10 +14,12 @@
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MyContactManagerData\MyContactManagerData.csproj" />
-  </ItemGroup>
-
+	<ItemGroup>
+	  <ProjectReference Include="..\ContactWebModels\ContactWebModels.csproj" />
+	</ItemGroup>
 </Project>
