@@ -16,8 +16,9 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyContactManagerData\MyContactManagerData.csproj" />
-  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MyContactManagerServices\MyContactManagerServices.csproj" />
+	</ItemGroup>
 
 </Project>
