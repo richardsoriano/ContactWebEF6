@@ -19,42 +19,19 @@ namespace ContactWebCoreEF6.Controllers
         }
 
         // GET: States
+        // GET: States
         public async Task<IActionResult> Index()
         {
             var allStates = new List<State>();
-
             if (!_cache.TryGetValue(ContactCacheConstants.ALL_STATES, out allStates))
             {
-                //var allStatesData = await _context.States.ToListAsync();
-                var allStatesData = await _statesService.GetAllAsync() as List<State>;
+                var allStatesData = await _context.States.ToListAsync();
 
                 _cache.Set(ContactCacheConstants.ALL_STATES, allStatesData, TimeSpan.FromDays(1));
                 return View(allStatesData);
             }
+
             return View(allStates);
-
-           
-            {
-                var allStatesData = await _context.States.ToListAsync();
-                _cache.Set(ContactCacheConstants.ALL_STATES, allStatesData, TimeSpan.FromDays(1));
-                return View(allStatesData);
-            }
-              return View(allStates);
-
-            {
-                var allStatesData = await _context.States.ToListAsync();
-                _cache.Set(ContactCacheConstants.ALL_STATES, allStatesData, TimeSpan.FromDays(1));
-                return View(allStatesData);
-            }
-              return View(allStates);
-
-            {
-                var allStatesData = await _context.States.ToListAsync();
-                _cache.Set(ContactCacheConstants.ALL_STATES, allStatesData, TimeSpan.FromDays(1));
-                return View(allStatesData);
-            }
-              return View(allStates);
-
         }
 
         // GET: States/Details/5
