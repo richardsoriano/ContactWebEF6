@@ -20,8 +20,9 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.12" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyContactManagerData\MyContactManagerData.csproj" />
-  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MyContactManagerServices\MyContactManagerServices.csproj" />
+	</ItemGroup>
 
 </Project>
