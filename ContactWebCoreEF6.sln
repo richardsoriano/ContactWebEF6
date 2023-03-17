@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactWebModels", "Contact
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContactManagerData", "MyContactManagerData\MyContactManagerData.csproj", "{98A3DFB3-F00A-4464-88BB-FA26F28AE015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContactManagerRepositories", "MyContactManagerRepositories\MyContactManagerRepositories.csproj", "{DC049E94-0380-4043-8F5B-3FE606745BB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContactManagerRepositories", "MyContactManagerRepositories\MyContactManagerRepositories.csproj", "{DC049E94-0380-4043-8F5B-3FE606745BB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContactManagerServices", "MyContactManagerServices\MyContactManagerServices.csproj", "{826C753D-22AD-43F7-9900-C2EFECEB8BE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContactManagerServices", "MyContactManagerServices\MyContactManagerServices.csproj", "{826C753D-22AD-43F7-9900-C2EFECEB8BE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContactManagerUnitTests", "MyContactManagerUnitTests\MyContactManagerUnitTests.csproj", "{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{826C753D-22AD-43F7-9900-C2EFECEB8BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{826C753D-22AD-43F7-9900-C2EFECEB8BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{826C753D-22AD-43F7-9900-C2EFECEB8BE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
