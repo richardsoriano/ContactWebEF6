@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContactManagerRepositorie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContactManagerServices", "MyContactManagerServices\MyContactManagerServices.csproj", "{826C753D-22AD-43F7-9900-C2EFECEB8BE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContactManagerUnitTests", "MyContactManagerUnitTests\MyContactManagerUnitTests.csproj", "{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContactManagerUnitTests", "MyContactManagerUnitTests\MyContactManagerUnitTests.csproj", "{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContactManagerIntegrationTests", "MyContactManagerIntegrationTests\MyContactManagerIntegrationTests.csproj", "{E1165A74-E15B-4A65-9569-CFBFFB818AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39D956E1-C0D3-4237-B55D-448FB1DBC4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1165A74-E15B-4A65-9569-CFBFFB818AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1165A74-E15B-4A65-9569-CFBFFB818AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1165A74-E15B-4A65-9569-CFBFFB818AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1165A74-E15B-4A65-9569-CFBFFB818AEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
