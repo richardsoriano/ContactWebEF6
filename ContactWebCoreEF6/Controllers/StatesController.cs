@@ -5,9 +5,13 @@ using MyContactManagerData;
 using Microsoft.Extensions.Caching.Memory;
 using ContactWebCoreEF6.Models;
 using MyContactManagerServices;
+using Microsoft.AspNetCore.Authorization;
+using ContactWebCoreEF6.Data;
 
 namespace ContactWebCoreEF6.Controllers
 {
+    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = UserRolesService.ADMIN_ROLE_NAME)]
     public class StatesController : Controller
     {
 
