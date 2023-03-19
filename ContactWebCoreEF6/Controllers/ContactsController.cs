@@ -11,10 +11,12 @@ using MyContactManagerData;
 using Microsoft.Extensions.Caching.Memory;
 using ContactWebCoreEF6.Models;
 using MyContactManagerServices;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContactWebEFCore6.Controllers
 {
-    
+    [Authorize]
     public class ContactsController : Controller
     {
        
@@ -54,24 +56,31 @@ namespace ContactWebEFCore6.Controllers
             TryValidateModel(contact);
         }
 
+        protected async Task<string> GetCurrentUserId()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return userId;
+        }
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-           
-            var contacts = await _contactsService.GetAllAsync();
+            var userId = await GetCurrentUserId();
+            var contacts = await _contactsService.GetAllAsync(userId);
+            ViewData["customValue"] = "Simple Secret";
             return View(contacts);
         }
 
         // GET: Contacts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+    
             if (id == null)
             {
                 return NotFound();
             }
 
-       
-            var contact = await _contactsService.GetAsync((int)id);
+            var userId = await GetCurrentUserId();
+            var contact = await _contactsService.GetAsync((int)id,userId);
             if (contact == null)
             {
                 return NotFound();
@@ -94,11 +103,13 @@ namespace ContactWebEFCore6.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email,PhonePrimary,PhoneSecondary,Birthday,StreetAddress1,StreetAddress2,City,StateId,Zip,UserId")] Contact contact)
         {
-     
+            var userId = await GetCurrentUserId();
+            contact.UserId = userId;
             await UpdateStateAndResetModelState(contact);
             if (ModelState.IsValid)
             {
-                await _contactsService.AddOrUpdateAsync(contact);
+                
+                await _contactsService.AddOrUpdateAsync(contact,userId);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["StateId"] = _statesData;
@@ -108,12 +119,13 @@ namespace ContactWebEFCore6.Controllers
         // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+       
             if (id == null)
             {
                 return NotFound();
             }
-
-            var contact = await _contactsService.GetAsync((int)id);
+            var userId = await GetCurrentUserId();
+            var contact = await _contactsService.GetAsync((int)id, userId);
             if (contact == null)
             {
                 return NotFound();
@@ -133,13 +145,15 @@ namespace ContactWebEFCore6.Controllers
             {
                 return NotFound();
             }
-
+            var userId = await GetCurrentUserId();
+            contact.UserId = userId;
             await UpdateStateAndResetModelState(contact);
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _contactsService.AddOrUpdateAsync(contact);
+           
+                    await _contactsService.AddOrUpdateAsync(contact,userId);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -165,8 +179,8 @@ namespace ContactWebEFCore6.Controllers
             {
                 return NotFound();
             }
-
-            var contact = await _contactsService.GetAsync((int)id);
+            var userId = await GetCurrentUserId();
+            var contact = await _contactsService.GetAsync((int)id,userId);
             if (contact == null)
             {
                 return NotFound();
@@ -180,15 +194,15 @@ namespace ContactWebEFCore6.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-
-            await _contactsService.DeleteAsync(id);
+            var userId = await GetCurrentUserId();
+            await _contactsService.DeleteAsync(id,userId );
             return RedirectToAction(nameof(Index));
         }
 
         private async Task<bool> ContactExists(int id)
         {
-
-            return await _contactsService.ExistsAsync(id);
+            var userId = await GetCurrentUserId();
+            return await _contactsService.ExistsAsync(id, userId);
         }
     }
 }
