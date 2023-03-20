@@ -10,8 +10,8 @@ using ContactWebCoreEF6.Data;
 
 namespace ContactWebCoreEF6.Controllers
 {
-    //[Authorize(Roles = "Admin")]
-    [Authorize(Roles = UserRolesService.ADMIN_ROLE_NAME)]
+    [Authorize]
+    //[Authorize(Roles = UserRolesService.ADMIN_ROLE_NAME)]
     public class StatesController : Controller
     {
 

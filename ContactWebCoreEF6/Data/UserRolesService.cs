@@ -30,8 +30,8 @@ namespace ContactWebCoreEF6.Data
         }
         private async Task EnsureUsers()
         {
-            var existingADminUser = await _userManager.FindByEmailAsync(ADMIN_USER_EMAIL);
-            if (existingADminUser is null)
+            var existingAdminUser = await _userManager.FindByEmailAsync(ADMIN_USER_EMAIL);
+            if (existingAdminUser is null)
             {
                 var adminUser = new IdentityUser()
                 {
